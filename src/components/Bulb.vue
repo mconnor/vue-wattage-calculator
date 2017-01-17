@@ -5,7 +5,7 @@
       <p>{{wattage}}</p>
       <p>{{tcost}}</p>
   </section>
-</main>
+
 
 </template>
 
@@ -30,6 +30,11 @@ export default {
 
 section {
 
+font-size: 1em;
+/*font-family: 'Open Sans', sans-serif;
+line-height: 24px;*/
+    font-weight: 300;
+
 
     text-align: center;
 
@@ -49,24 +54,24 @@ section > div {
 
 
 
-h4 {
+section h4 {
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: .8em;
+    font-size: .9em;
     letter-spacing: 1px;
     margin: 0 0 5px 0;
     text-transform: uppercase;
 }
 
-p {
+section p {
     margin: 0;
     font-size: 1.5em;
     font-weight: 700;
 }
 
-// style applies to p followin another p
-p + p {
-    font-size: 1em;
-    font-weight: 300
+/*style applies to p followin another p*/
+section p + p {
+    font-size: 1em !important;
+    font-weight: 300;
 }
 
 section p::after {
@@ -74,10 +79,14 @@ section p::after {
 }
 
 
-p + p::after {
+section p + p::after {
     content: 'per year';
     color: rgba(255, 255, 255, .5);
     padding-left: 4px;
+}
+
+section p + p::before {
+    content: '$';
 }
 
 
@@ -86,28 +95,34 @@ p + p::after {
         font-size: 15px;
     }
 
-    main section {
+    section {
         background-size: 45px 71px;
         padding-top: 80px;
     }
 
-    main h4 {
-        margin: 0;
-        font-size: .75em;
+    section h4 {
+      font-family: 'Open Sans Condensed', sans-serif;
+  font-size: .8em;
+  letter-spacing: 1px;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
     }
 
-    main p {
+    section p {
         font-size: 1.1em;
+        font-size: 1.5em;
+    font-weight: 700;
     }
 
-    main p + p {
+    section p + p {
         font-size: 1em;
+        font-weight: 300
     }
 
-    main p + p::after {
+    section p + p::after {
 
         display: block;
-        color: #fff;
+        color: #00f;
         margin-top: -10px;
     }
 

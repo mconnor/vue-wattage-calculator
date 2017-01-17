@@ -1,10 +1,10 @@
 <template>
 <div id="app" class="card">
-  <header class="card-header">
-     <p class="card-header-title">
-       {{ msg }}
-     </p>
-   </header>
+    <header class="card-header">
+        <p class="card-header-title">
+            {{ msg }}
+        </p>
+    </header>
     <main :class='mainClass'>
         <bulb type='incandescent' :klass='inc' :wattage='inc_wattage' :tcost='inc_tcost'></bulb>
         <bulb type='halogen' :klass='hal' :wattage='hal_wattage' :tcost='hal_tcost'></bulb>
@@ -15,23 +15,21 @@
     <form>
         <div>
             <h4>Lumens</h4>
-            <label>Brightness <br>of bulb</label>
-
-
-            <p class="control">
-                <span class="select">
+            <p>Brightness <br>of bulb</p>
+            <!-- <span class="control"> -->
+            <p class="select control">
                   <select v-model.number='current_lumens'>
                     <option v-for="option in lumen_options"
                             :value="option.val">
                         {{ option.val }}
                     </option>
                   </select>
-                </span>
             </p>
+            <!-- </span -->
         </div>
         <div>
             <h4>kWh</h4>
-            <label>Kilowatt <br>-hours cost</label>
+            <p>Kilowatt <br>-hours cost</p>
             <p class="control">
                 <input class="input" type="number" v-model.number="current_cost" placeholder="current_cost">cents
             </p>
@@ -39,7 +37,7 @@
 
         <div>
             <h4>Hours</h4>
-            <label>Usage <br>per day</label>
+            <p>Usage <br>per day</p>
             <p class="control">
                 <input class="input" type="number" v-model.number="current_hours" placeholder="current_cost">
             </p>
@@ -144,24 +142,30 @@ export default {
 
 <style>
 @import url("../node_modules/bulma/css/bulma.css");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:700);
 #app {
     margin: 0;
     padding: 40;
     font-size: 16px;
-    /*font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    line-height: 24px;*/
-    max-width: 800px;
+    /*font-family: 'Open Sans', sans-serif;
+
+
+    max-width: 800px;*/
     background: black;
     color: white;
+
 }
 
 #app form input[type=number] {
     width: 5em;
     text-align: left;
     font-size: 1em;
+    margin-right: 1em;
 }
-
+.control {
+  margin-top: 6px;
+}
 .my-main {
     background: brown;
     display: flex;
@@ -195,18 +199,56 @@ export default {
     background-image: url(./assets/bulb_led.svg);
 }
 
-form {
+#app form {
     display: flex;
     justify-content: space-around;
 }
-form select {
+
+#app form select {
     font-size: 1em;
-    padding: 3px 30px 3px 5px;
+
+    /*-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+    background: #fff url(./assets/icons_arrows.svg) no-repeat right 6px;
+  background-size: 30px 20px;*/
+
+  padding: 3px 30px 3px 5px;
+}
+
+#app form h4 {
+    color: #aaa;
+    margin: 0 0 -5px 0;
+    font-size: 1.5em;
+    font-weight: 300;
 
 }
 
-p+p::before {
-    content: "$";
+#app form p {
+    font-size: .8em;
+    line-height: 14px;
+    text-align: center;
 }
 
+#app form br {
+    display: none;
+}
+#app form > div {
+    width: 33%;
+    /*float: left;*/
+    text-align: center;
+    color: white;
+    /*padding: 10px 0 5px 0;*/
+}
+form::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen and (max-width: 500px) {
+    form br {
+        display: inline;
+    }
+}
 </style>
