@@ -5,7 +5,7 @@
       <p>{{wattage}}</p>
       <p>{{tcost}}</p>
   </section>
-
+</main>
 
 </template>
 
@@ -78,5 +78,38 @@ p + p::after {
     content: 'per year';
     color: rgba(255, 255, 255, .5);
     padding-left: 4px;
+}
+
+
+@media screen and (max-width: 500px) {
+    {
+        font-size: 15px;
+    }
+
+    main section {
+        background-size: 45px 71px;
+        padding-top: 80px;
+    }
+
+    main h4 {
+        margin: 0;
+        font-size: .75em;
+    }
+
+    main p {
+        font-size: 1.1em;
+    }
+
+    main p + p {
+        font-size: 1em;
+    }
+
+    main p + p::after {
+
+        display: block;
+        color: #fff;
+        margin-top: -10px;
+    }
+
 }
 </style>

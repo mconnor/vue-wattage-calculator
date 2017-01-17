@@ -1,7 +1,10 @@
 <template>
-<div id="app">
-
-    <h1>{{ msg }}</h1>
+<div id="app" class="card">
+  <header class="card-header">
+     <p class="card-header-title">
+       {{ msg }}
+     </p>
+   </header>
     <main :class='mainClass'>
         <bulb type='incandescent' :klass='inc' :wattage='inc_wattage' :tcost='inc_tcost'></bulb>
         <bulb type='halogen' :klass='hal' :wattage='hal_wattage' :tcost='hal_tcost'></bulb>
@@ -196,8 +199,14 @@ form {
     display: flex;
     justify-content: space-around;
 }
+form select {
+    font-size: 1em;
+    padding: 3px 30px 3px 5px;
+
+}
 
 p+p::before {
     content: "$";
 }
+
 </style>
