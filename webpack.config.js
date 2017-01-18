@@ -1,13 +1,20 @@
-const path = require('path'),
- webpack = require('webpack');
+var path = require('path'),
+ webpack = require('webpack'),
+ ExtractTextPlugin = require("extract-text-webpack-plugin");
 //var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: './dist/',
     filename: 'build.js'
   },
+
+
+
+  //plugins: [new HtmlWebpackPlugin()],
+
+
   module: {
     rules: [
       {
@@ -31,6 +38,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
+        //loader: 'url-loader?limit=8192'
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -56,10 +64,10 @@ module.exports = {
 
 
 
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = '#source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -76,5 +84,5 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]);
 }
