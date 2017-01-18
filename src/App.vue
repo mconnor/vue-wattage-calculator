@@ -5,44 +5,55 @@
             {{ msg }}
         </p>
     </header>
-    <main :class='mainClass'>
-        <bulb type='incandescent' :klass='inc' :wattage='inc_wattage' :tcost='inc_tcost'></bulb>
-        <bulb type='halogen' :klass='hal' :wattage='hal_wattage' :tcost='hal_tcost'></bulb>
-        <bulb type='cfl' :klass='cfl' :wattage='cfl_wattage' :tcost='cfl_tcost'></bulb>
-        <bulb type='led' :klass='led' :wattage='led_wattage' :tcost='led_tcost'></bulb>
+    <div class="card-content">
+        <main :class='mainClass'>
+            <bulb type='incandescent' :klass='inc' :wattage='inc_wattage' :tcost='inc_tcost'></bulb>
+            <bulb type='halogen' :klass='hal' :wattage='hal_wattage' :tcost='hal_tcost'></bulb>
+            <bulb type='cfl' :klass='cfl' :wattage='cfl_wattage' :tcost='cfl_tcost'></bulb>
+            <bulb type='led' :klass='led' :wattage='led_wattage' :tcost='led_tcost'></bulb>
 
-    </main>
-    <form>
-        <div>
-            <h4>Lumens</h4>
-            <p>Brightness <br>of bulb</p>
-            <!-- <span class="control"> -->
-            <p class="select control">
-                  <select v-model.number='current_lumens'>
-                    <option v-for="option in lumen_options"
-                            :value="option.val">
-                        {{ option.val }}
-                    </option>
+        </main>
+        <form>
+            <div>
+                <h4>Lumens</h4>
+                <p>Brightness <br>of bulb</p>
+                <!-- <span class="control"> -->
+                <p class="select control">
+                    <select v-model.number='current_lumens'>
+                      <option v-for="option in lumen_options"
+                              :value="option.val">
+                          {{ option.val }}
+                      </option>
                   </select>
-            </p>
-            <!-- </span -->
-        </div>
-        <div>
-            <h4>kWh</h4>
-            <p>Kilowatt <br>-hours cost</p>
-            <p class="control">
-                <input class="input" type="number" v-model.number="current_cost" placeholder="current_cost">cents
-            </p>
-        </div>
+                </p>
+                <!-- </span -->
+            </div>
+            <div>
+                <h4>kWh</h4>
+                <p>Kilowatt <br>-hours cost</p>
+                <p class="control">
+                    <input class="input" type="number" v-model.number="current_cost" placeholder="current_cost">cents
+                </p>
+            </div>
 
-        <div>
-            <h4>Hours</h4>
-            <p>Usage <br>per day</p>
-            <p class="control">
-                <input class="input" type="number" v-model.number="current_hours" placeholder="current_cost">
-            </p>
-        </div>
-    </form>
+            <div>
+                <h4>Hours</h4>
+                <p>Usage <br>per day</p>
+                <p class="control">
+                    <input class="input" type="number" v-model.number="current_hours" placeholder="current_cost">
+                </p>
+            </div>
+        </form>
+    </div>
+    <footer class="card-footer">
+
+        <!-- <a class="card-footer-item">Save</a>
+           <a class="card-footer-item">Edit</a>
+           <a class="card-footer-item">Delete</a>
+          -->
+        <p class="card-footer-item">Made with <a href='https://vuejs.org/'>Vue.js</a></p>
+
+    </footer>
 
 
 </div>
@@ -65,7 +76,7 @@ export default {
             cfl_conv: 0.0146,
             led_conv: 0.0125,
 
-            msg: 'Light Bulb Wattage Calculator App',
+            msg: 'Light Bulb Wattage Calculator App. Made with Vue.js',
             inc: 'bg-inc',
             hal: 'bg-hal',
             cfl: 'bg-cfl',
@@ -154,18 +165,22 @@ export default {
     max-width: 800px;*/
     background: black;
     color: white;
-
 }
-
+#app .card-header-title{
+  color: #fff
+}
 #app form input[type=number] {
     width: 5em;
-    text-align: left;
+    text-align: center;
     font-size: 1em;
     margin-right: 1em;
 }
+
 .control {
-  margin-top: 6px;
+    margin-top: 6px;
+    text-align: center;
 }
+
 .my-main {
     background: brown;
     display: flex;
@@ -206,14 +221,12 @@ export default {
 
 #app form select {
     font-size: 1em;
-
     /*-webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;
     background: #fff url(./assets/icons_arrows.svg) no-repeat right 6px;
   background-size: 30px 20px;*/
-
-  padding: 3px 30px 3px 5px;
+    padding: 3px 30px 3px 5px;
 }
 
 #app form h4 {
@@ -221,25 +234,25 @@ appearance: none;
     margin: 0 0 -5px 0;
     font-size: 1.5em;
     font-weight: 300;
-
 }
 
 #app form p {
     font-size: .8em;
     line-height: 14px;
-    text-align: center;
 }
 
 #app form br {
     display: none;
 }
-#app form > div {
+
+#app form>div {
     width: 33%;
     /*float: left;*/
     text-align: center;
     color: white;
     /*padding: 10px 0 5px 0;*/
 }
+
 form::after {
     content: "";
     display: block;
