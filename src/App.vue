@@ -195,22 +195,20 @@ export default {
 }
 
 .bg-inc {
-    background-color: red;
+    background-color: #111;
     background-image: url(./assets/bulb_inc.svg);
 }
-
+.bg-hal {
+    background-color: #444;
+    background-image: url(./assets/bulb_hal.svg);
+}
 .bg-cfl {
-    background-color: orange;
+    background-color: #777;
     background-image: url(./assets/bulb_cfl.svg);
 }
 
-.bg-hal {
-    background-color: green;
-    background-image: url(./assets/bulb_hal.svg);
-}
-
 .bg-led {
-    background-color: blue;
+    background-color: #aaa;
     background-image: url(./assets/bulb_led.svg);
 }
 
