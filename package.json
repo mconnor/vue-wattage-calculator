@@ -1,7 +1,7 @@
 {
   "name": "wattage-calculator",
   "description": "A Vue.js project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "mike connor <mike@rocketnumber9.org>",
   "private": true,
   "scripts": {
@@ -13,15 +13,16 @@
     "vue": "^2.1.10"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.0.0",
     "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.26.1",
+    "eslint-plugin-html": "^2.0.1",
     "file-loader": "^0.9.0",
-    "vue-loader": "^10.0.0",
+    "vue-loader": "^11.0.0",
     "vue-template-compiler": "^2.1.10",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   }
 }
